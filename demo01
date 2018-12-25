@@ -1,0 +1,19 @@
+import threading
+import time
+
+
+class MyThread(threading.Thread):
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
+
+    def run(self):
+        time.sleep(2)
+        print("{0} 线程{1} 开始了".format(time.ctime(), self.name))
+
+
+t1 = MyThread("t1")
+t1.start()
+
+t2 = MyThread("t2")
+t2.start()
